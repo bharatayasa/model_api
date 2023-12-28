@@ -5,7 +5,7 @@ import numpy as np
 
 model = None
 class_names = [
-    'bacterial_spot', 'early_blight', 'healthy', 'late_blight', 'leaf_mold', 'mosaic_virus', 'septoria_leaf_spot', 'spider_mites', 'target_spot', 'yellow_leaf_curl'
+    'bacterial spot', 'early blight', 'healthy', 'late blight', 'leaf mold', 'mosaic virus', 'septoria leaf spot', 'spider mites', 'target spot', 'yellow leaf curl'
     ]
 
 class_description = [
@@ -53,7 +53,7 @@ class_prevent =[
     'Penyakit Yellow Leaf Curl dapat ditekan melalui metode pengendalian kimia. Setelah terjangkit oleh virus, tidak ada pengobatan yang efektif untuk infeksi tersebut, oleh karena itu, untuk mengelola populasi serangga yang berpotensi menyebarkan virus, digunakan insektisida dari keluarga piretroid. Insektisida ini dapat diterapkan sebagai pembasmi tanah atau semprotan selama tahap pembibitan tanaman untuk mengurangi populasi serangga yang berpotensi menyebabkan penyebaran virus'
     ]
 
-BUCKET_NAME = "models_tomatify" # Ganti dengan nama bucket GCP Anda
+BUCKET_NAME = "models_tomatify_numpang"
 
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
@@ -102,4 +102,4 @@ def predict(request):
         "Access-Control-Allow-Methods": "POST"
     }
 
-    return {"class": predicted_class, "confidence": confidence, "description": disease_description, "prevention": disease_prevention}, 200, headers
+    return {"kelas": predicted_class, "confidence": confidence, "description": disease_description, "prevention": disease_prevention}, 200, headers
